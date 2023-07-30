@@ -1,5 +1,5 @@
 {
-  "name": "project-nodejs",
+  "name": "study-nodejs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,16 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DuyKhai129/nodejs.git"
-  },
   "author": "henry",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DuyKhai129/nodejs/issues"
-  },
-  "homepage": "https://github.com/DuyKhai129/nodejs#readme",
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
