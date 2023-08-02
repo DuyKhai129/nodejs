@@ -1,10 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
-router.get("/", (req, res) => {
-  res.render("simple", {
-    name: "Henry",
-  });
-});
+const { getHome } = require("../controllers/homeController");
+router.get("/", getHome);
 
 module.exports = router; // export default
