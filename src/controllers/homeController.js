@@ -2,7 +2,7 @@
 const connection = require("../config/database");
 
 const getHome = (req, res) => {
-  res.render("simple", {
+  return res.render("home", {
     name: "Henry",
   });
 };
