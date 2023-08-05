@@ -15,7 +15,7 @@ app.use(express.json()); // for json
 app.use(express.urlencoded({ extended: true })); // for form data
 
 // route
-app.use("/views", webRouter);
+app.use("/", webRouter);
 
 app.listen(port, hostName, () => {
   console.log(`Example app listening to ${hostName}:${port}`);
