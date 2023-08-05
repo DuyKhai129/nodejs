@@ -9,7 +9,7 @@ const getHome = (req, res) => {
 const getDB = (req, res) => {
   let user = [];
   // simple query
-  connection.query("SELECT * from Users u", function (err, results, fields) {
+  connection.query("SELECT * from Users", function (err, results, fields) {
     console.log(">>>results: ", results); // results contains rows returned by server
     // console.log(">>>fields: ", fields); // fields contains extra meta data about results, if available
     user = results;

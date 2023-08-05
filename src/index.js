@@ -10,6 +10,9 @@ const hostName = process.env.HOST_NAME;
 const webRouter = require("./routes/web");
 //config template engine
 configViewEngine(app);
+//config req.body
+app.use(express.json()); // for json
+app.use(express.urlencoded({ extended: true })); // for form data
 
 // route
 app.use("/views", webRouter);
