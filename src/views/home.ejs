@@ -17,6 +17,7 @@
     </div>
     <div class="header">
         <div class="table">
+            <!-- <%= JSON.stringify(listUser)%> -->
             <fieldset>
                 <table>
                     <tr>
@@ -24,13 +25,31 @@
                         <th>Email</th>
                         <th>Name</th>
                         <th>City</th>
+                        <th>Action</th>
                     </tr>
-                    <tr>
-                        <td>Peter</td>
-                        <td>Griffin</td>
-                        <td>$100</td>
-                        <td></td>
-                    </tr>
+                    <% listUser.forEach(function(user) { %>
+                        <tr>
+
+                            <td>
+                                <%=user.id %>
+                            </td>
+                            <td>
+                                <%=user.email %>
+                            </td>
+                            <td>
+                                <%=user.name %>
+                            </td>
+                            <td>
+                                <%=user.city %>
+                            </td>
+
+                            <td>
+                                <a href="/updateUser/<%=user.id %>">Edit</a>
+                                <button>Delete</button>
+                            </td>
+
+                        </tr>
+                        <% }) %>
                 </table>
             </fieldset>
         </div>

@@ -1,6 +1,10 @@
 // import connection ctrl  + click
 const connection = require("../config/database");
 
+const getCreate = (req, res) => {
+  return res.render("createUser.ejs");
+};
+
 const createUser = async (req, res) => {
   console.log(">>>data", req.body);
 
@@ -20,10 +24,15 @@ const createUser = async (req, res) => {
   );
   res.send("create user succeed !");
 };
-const getCreate = (req, res) => {
-  return res.render("createUser");
+
+const getUpdate = (req, res) => {
+  res.render("editUser.ejs");
 };
+
+const updateUser = (req, res) => {};
 module.exports = {
   createUser,
   getCreate,
+  updateUser,
+  getUpdate,
 };
