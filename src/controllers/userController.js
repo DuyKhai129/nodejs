@@ -1,5 +1,6 @@
 // import connection ctrl  + click
 const connection = require("../config/database");
+const { getUserById, update } = require("../services/CRUDService");
 
 const getCreate = (req, res) => {
   return res.render("createUser.ejs");
@@ -25,14 +26,24 @@ const createUser = async (req, res) => {
   res.send("create user succeed !");
 };
 
-const getUpdate = (req, res) => {
-  res.render("editUser.ejs");
+const getUpdate = async (req, res) => {
+  const userId = req.params.id;
+  let user = await getUserById(userId); // cần await để chánh bị chạy cái trc cái sau
+  res.render("editUser.ejs", { user });
 };
 
-const updateUser = (req, res) => {};
+const updateUser = async (req, res) => {
+  const { userId, email, name, city } = req.body;
+
+  await update(email, name, city, userId);
+
+  res.redirect("/");
+};
+const deleteUser = async (req, res) => {};
 module.exports = {
   createUser,
   getCreate,
   updateUser,
   getUpdate,
+  deleteUser,
 };
