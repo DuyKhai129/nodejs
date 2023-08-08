@@ -1,6 +1,6 @@
 // import connection ctrl  + click
 const connection = require("../config/database");
-const { getUserById, update } = require("../services/CRUDService");
+const { getUserById, update, delete_user } = require("../services/CRUDService");
 
 const getCreate = (req, res) => {
   return res.render("createUser.ejs");
@@ -23,7 +23,7 @@ const createUser = async (req, res) => {
     `insert into Users (email,name,city) values (?,?,?)`,
     [email, name, city]
   );
-  res.send("create user succeed !");
+  res.redirect("/");
 };
 
 const getUpdate = async (req, res) => {
@@ -39,11 +39,23 @@ const updateUser = async (req, res) => {
 
   res.redirect("/");
 };
-const deleteUser = async (req, res) => {};
+const Confirm = async (req, res) => {
+  const userId = req.params.id;
+  let user = await getUserById(userId); // cần await để chánh bị chạy cái trc cái sau
+  res.render("deleteUser.ejs", { user });
+};
+const deleteUser = async (req, res) => {
+  const { userId } = req.body;
+
+  await delete_user(userId);
+
+  res.redirect("/");
+};
 module.exports = {
   createUser,
   getCreate,
   updateUser,
   getUpdate,
+  Confirm,
   deleteUser,
 };

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .width_100 {
+            width: 100%;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #04AA6D;
+        }
+
+        .form {
+            width: 500px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        fieldset {
+            padding: 10px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .d-none {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/createUser">Create</a></li>
+        </ul>
+    </div>
+    <div class="header">
+        <div class="form">
+            <form action="/delete_user" method="POST">
+                <fieldset>
+                    <legend>Delete user:</legend>
+
+                    <label for="email">Are sure to delete this user with Email:</label>
+                    <div class="d-none">
+                        <label for="userId">id:</label>
+                        <input type="text" id="userId" value="<%= user.id %>" name="userId"> <br><br>
+                    </div>
+                    <input type="text" id="email" disabled value="<%= user.email %> " name="email"><br><br>
+
+                    <button type="submit">Confirm</button>
+                </fieldset>
+            </form>
+        </div>
+        <img src="/imgs/girl.jpg" class="width_100">
+    </div>
+
+</body>
+
+</html>
